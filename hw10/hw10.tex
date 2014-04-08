@@ -1,0 +1,333 @@
+\documentclass[letterpaper,11pt]{article}
+%\documentclass[12pt]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{colortbl}
+\definecolor{Gray}{gray}{0.4}
+
+%\usepackage{setspace}
+%\usepackage{footmisc}
+%\usepackage{lipsum}
+
+\newcommand{\superscript}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+\newcommand{\inlinecode}{\texttt}
+%\renewcommand\footnotelayout{\fontsize{8}{8}\selectfont}
+
+\begin{document}
+
+\title{CS 620: Homework 10}
+\date{November 15, 2012}
+\author{Carmen St.\ Jean}
+
+\maketitle
+
+\begin{enumerate}
+\item \emph{(5) Consider the following segment table:}
+
+\begin{center}
+  \begin{tabular}{r | c | l}
+    Segment & Base & Length \\ \hline
+    \hline
+    0 & 219 & 600 \\ \hline
+    1 & 2300 & 14 \\ \hline
+    2 & 90 & 100 \\ \hline
+    3 & 1327 & 580 \\ \hline
+    4 & 1952 & 96 \\ \hline
+  \end{tabular}
+\end{center}
+\emph{What are the physical addresses for the following logical addresses?}
+
+  \begin{enumerate}
+    \item \emph{0, 430}
+
+    $0, 430 + 219 \rightarrow 0, 649$
+    \item \emph{1, 10}
+
+    $1, 10 + 2300 \rightarrow 1, 2310$
+    \item \emph{2, 500}
+
+    $2, 500 + 90 \rightarrow 2, 590 \rightarrow$ out of bounds
+    \item \emph{3, 400}
+
+    $3, 400 + 1327 \rightarrow 3, 1727$
+    \item \emph{4, 112}
+
+    $4, 112 + 1952 \rightarrow 4, 2064\rightarrow$ out of bounds
+  \end{enumerate}
+
+\item  \emph{Consider a paging system with the page table stored in memory.}
+  \begin{enumerate}
+    \item \emph{(1.5) If a memory reference takes 100 nanoseconds, how long does a paged memory reference take?}
+
+    There are two memory accesses for every logical address look-up with paging.  Therefore, a paged memory reference takes 200 nanoseconds.
+    \item \emph{(2.5) If we add associative registers, and 75 percent of all page-table references are found in the associative registers, what is the effective memory reference time? (Assume that finding a page-table entry in the associative registers takes zero time, if the entry is there.)}
+
+    75\% of references will take 100 nanoseconds since only one memory access is necessary for them, while the remaining 25\% of references will take 200 nanoseconds.  This means that the effective look-up time will be 125 nanoseconds because:
+    
+    $200 * 0.25 + 100 * 0.75 = 50 + 75 = 125$
+  \end{enumerate}
+\item \textit{Given memory partitions of 200K (Hole 1), 80K (Hole 2), 100K (Hole 3), 600K (Hole 4), 300K (Hole 5) and 700K (Hole 6) (in order), how would each of the \textbf{First-fit}, \textbf{Next-fit}, \textbf{Best-fit} and \textbf{Worst-fit} algorithms place processes of 153K (Process A), 280K (Process B), 85K (Process C), 310K (Process D), 650K (Process E) (in order)? For first-fit algorithm, searching starts at the beginning of the set of holes every time. For next-fit algorithm, searching starts at the beginning of the set of holes the first time.}
+
+\begin{minipage}[t]{0.22\textwidth}
+\textbf{First-fit}
+
+  \begin{tabular}{| r  l |}
+    \hline
+    \rowcolor{gray}
+     & \\ \hline
+    Process A & 153 K \\ \hline
+    Hole 1 & 47 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+    Hole 2 & 80 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+    Process C & 85 K \\ \hline
+    Hole 3 & 15 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+    Process B & 280 K \\ \hline
+    Process D & 310 K \\ \hline
+    Hole 4 & 10 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+    Hole 5 & 300 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+    Process E & 650 K \\ \hline
+    Hole 6 & 50 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+  \end{tabular}
+\end{minipage}
+\begin{minipage}[t]{0.22\textwidth}
+\textbf{Next-fit}
+
+  \begin{tabular}{| r  l |}
+    \rowcolor{gray}
+     & \\ \hline
+    Process A & 153 K \\ \hline
+    Hole 1 & 47 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+    Hole 2 & 80 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+    Hole 3 & 100 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+    Process B & 280 K \\ \hline
+    Process C & 85 K \\ \hline
+    Hole 4 & 235 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+    Hole 5 & 300 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+    Process D & 310 K \\ \hline
+    Hole 6 & 290 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+  \end{tabular}   
+
+* 
+\end{minipage} 
+\begin{minipage}[t]{0.22\textwidth} 
+\textbf{Best-fit}
+
+  \begin{tabular}{| r  l |}
+    \rowcolor{gray}
+     & \\ \hline
+    Process A & 153 K \\ \hline
+    Hole 1 & 47 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+    Hole 2 & 80 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+    Process C & 85 K \\ \hline
+    Hole 3 & 15 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+    Process D & 310 K \\ \hline
+    Hole 4 & 290 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+    Process B & 280 K \\ \hline
+    Hole 5 & 20 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+    Process E & 650 K \\ \hline
+    Hole 6 & 50 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+  \end{tabular}
+\end{minipage}
+\begin{minipage}[t]{0.22\textwidth} 
+\textbf{Worst-fit}
+
+  \begin{tabular}{| r  l |}
+    \rowcolor{gray}
+     & \\ \hline
+    Hole 1 & 200 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+    Hole 2 & 80 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+    Hole 3 & 100 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+    Process B & 280 K \\ \hline
+    Hole 4 & 320 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+    Hole 5 & 300 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+    Process A & 153 K \\ \hline
+    Process C & 85 K \\ \hline
+    Process D & 310 K \\ \hline
+    Hole 6 & 152 K \\ \hline
+    \rowcolor{gray}
+     & \\ \hline
+  \end{tabular}    
+
+*
+\end{minipage}
+
+* No hole large enough remains so Process E will have to wait.
+
+\item \emph{In the following problem, main memory consists of 64 10-bit words. The contents of main memory are as follows:}
+
+\begin{center}
+  \begin{tabular}{r | l | r | l | r | l | r | l}
+Address & Contents & Address & Contents & Address & Contents & Address & Contents \\ \hline
+    \hline
+0 & 823  & 16 & 876 & 32 & 317 & 48 & 55 \\ \hline
+1 & 578  & 17 & 617 & 33 & 734 & 49 & 268 \\ \hline
+2 & 30   & 18 & 157 & 34 & 703 & 50 & 518 \\ \hline
+3 & 64   & 19 & 612 & 35 & 439 & 51 & 170 \\ \hline
+4 & 521  & 20 & 509 & 36 & 33  & 52 & 10 \\ \hline
+5 & 568  & 21 & 353 & 37 & 667 & 53 & 920 \\ \hline
+6 & 112  & 22 & 785 & 38 & 391 & 54 & 867 \\ \hline
+7 & 583  & 23 & 264 & 39 & 606 & 55 & 25 \\ \hline
+8 & 371  & 24 & 124 & 40 & 16  & 56 & 912 \\ \hline
+9 & 293  & 25 & 228 & 41 & 986 & 57 & 405 \\ \hline
+10 & 20  & 26 & 315 & 42 & 539 & 58 & 19 \\ \hline
+11 & 168 & 27 & 693 & 43 & 613 & 59 & 25 \\ \hline
+12 & 570 & 28 & 829 & 44 & 182 & 60 & 108 \\ \hline
+13 & 827 & 29 & 182 & 45 & 78  & 61 & 258 \\ \hline
+14 & 15  & 30 & 611 & 46 & 943 & 62 & 624 \\ \hline
+15 & 157 & 31 & 45  & 47 & 512 & 63 & 217 \\ \hline
+  \end{tabular}
+\end{center}
+\emph{Note: the addresses in the problems below are virtual addresses. The normal convention is to place the most significant portion of the address in the most significant bits of the address. Thus, the virtual addresses below will be formatted as follows:}
+
+\emph{page \# $|$ word \#}
+
+\emph{Consider an operating system using paging. Main memory is divided into 4-word page frames. In a page table descriptor, the low order bits contain the frame in which the page resides. To the left of the frame number is the residency bit and the remaining bits are used by the operating system (protection, whether the page has been modified, etc.). Thus the page descriptor looks like:}
+
+\emph{OS ResidencyBit Frame\#}
+
+\emph{The page table pointer for a process points to address 18. Give the results of the following memory references by that process:}
+
+  \begin{enumerate}
+    \item \emph{69}
+
+    $69_{10} = 1000101_2$
+    
+    Page $10001_2 = 17_{10}$, Word $01_2 = 1_{10}$
+    
+    Page table pointer + Page number $= 18 + 17 = 35$
+    
+    Address(35) $\rightarrow$ 439
+    
+    $439_{10} = 110110111_2$
+    
+    
+    Frame: 0111 ($7$)
+    
+    Residency bit: 1
+    
+    OS: 1101
+    
+    
+    Address = frame number * frame size + word number = $7 * 4 + 1 = 29$
+    
+    Address(29) = 182
+    \item \emph{51}
+
+    $51_{10} = 110011_2$
+    
+    Page $1100_2 = 12_{10}$, Word $11_2 = 3_{10}$
+    
+    Page table pointer + Page number $= 18 + 12 = 30$
+    
+    Address(30) $\rightarrow$ 611
+    
+    $611_{10} = 1001100011_2$
+    
+    
+    Frame: 0011 ($3$)
+    
+    Residency bit: 0
+    
+    OS: 10011
+    
+    
+    %Address = frame number * frame size + word number = $3 * 4 + 3 = 15$
+    
+    %Address(15) = 157
+    \item \emph{36}
+
+    $36_{10} = 100100_2$
+    
+    Page $1001_2 = 9_{10}$, Word $00_2 = 0_{10}$
+    
+    Page table pointer + Page number $= 18 + 9 = 27$
+    
+    Address(27) $\rightarrow$ 693
+    
+    $693_{10} = 1010110101_2$
+    
+    
+    Frame: 0101 ($5$)
+    
+    Residency bit: 1
+    
+    OS: 10101
+    
+    
+    Address = frame number * frame size + word number = $5 * 4 + 0 = 20$
+    
+    Address(20) = 509
+    \item \emph{86}
+
+    $86_{10} = 1010110_2$
+    
+    Page $10101_2 = 21_{10}$, Word $10_2 = 2_{10}$
+    
+    Page table pointer + Page number $= 18 + 21 = 39$
+    
+    Address(39) $\rightarrow$ 606
+    
+    $606_{10} = 1001011110_2$
+    
+    
+    Frame: 1110 ($14$)
+    
+    Residency bit: 1
+    
+    OS: 10010
+    
+    
+    Address = frame number * frame size + word number = $14 * 4 + 2 = 58$
+    
+    Address(58) = 19
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}

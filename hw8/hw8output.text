@@ -1,0 +1,156 @@
+Enter duration of program execution (in minutes): 2
+Enter customer mean inter-arrival time (in seconds): 10
+Enter mean service time for the barber  (in seconds): 20
+******************************************************
+TOTAL WAITING SPACE IN BARBER SHOP = 2
+
+Simulation start time = 0
+Barber opens shop at time 0
+Customer 1 arrives at time 3
+Customer 1 gets barber at time 3
+Customer 2 arrives at time 7
+Customer 3 arrives at time 13
+Customer 3 leaves since no vacant seats
+Customer 1 leaves barber shop at time 13
+Customer 2 gets barber at time 13
+Customer 4 arrives at time 20
+Customer 5 arrives at time 47
+Customer 5 leaves since no vacant seats
+Customer 6 arrives at time 61
+Customer 6 leaves since no vacant seats
+Customer 7 arrives at time 62
+Customer 7 leaves since no vacant seats
+Customer 8 arrives at time 67
+Customer 8 leaves since no vacant seats
+Customer 2 leaves barber shop at time 68
+Customer 4 gets barber at time 68
+Customer 9 arrives at time 70
+Customer 10 arrives at time 72
+Customer 10 leaves since no vacant seats
+Customer 4 leaves barber shop at time 88
+Customer 9 gets barber at time 88
+Customer 11 arrives at time 98
+Customer 9 leaves barber shop at time 114
+Customer 11 gets barber at time 114
+***********************************************************
+End of simulation run.
+***********************************************************
+
+
+Enter duration of program execution (in minutes): 2
+Enter customer mean inter-arrival time (in seconds): 5
+Enter mean service time for the barber  (in seconds): 20
+******************************************************
+TOTAL WAITING SPACE IN BARBER SHOP = 2
+
+Simulation start time = 0
+Barber opens shop at time 0
+Customer 1 arrives at time 4
+Customer 1 gets barber at time 4
+Customer 2 arrives at time 11
+Customer 3 arrives at time 16
+Customer 3 leaves since no vacant seats
+Customer 1 leaves barber shop at time 17
+Customer 2 gets barber at time 17
+Customer 4 arrives at time 19
+Customer 5 arrives at time 19
+Customer 5 leaves since no vacant seats
+Customer 6 arrives at time 20
+Customer 6 leaves since no vacant seats
+Customer 2 leaves barber shop at time 21
+Customer 4 gets barber at time 21
+Customer 7 arrives at time 22
+Customer 8 arrives at time 24
+Customer 8 leaves since no vacant seats
+Customer 9 arrives at time 27
+Customer 9 leaves since no vacant seats
+Customer 10 arrives at time 29
+Customer 10 leaves since no vacant seats
+Customer 4 leaves barber shop at time 52
+Customer 7 gets barber at time 52
+Customer 11 arrives at time 54
+Customer 12 arrives at time 55
+Customer 12 leaves since no vacant seats
+Customer 7 leaves barber shop at time 57
+Customer 11 gets barber at time 57
+Customer 11 leaves barber shop at time 57
+Customer 13 arrives at time 61
+Customer 13 gets barber at time 61
+Customer 14 arrives at time 61
+Customer 15 arrives at time 63
+Customer 15 leaves since no vacant seats
+Customer 16 arrives at time 72
+Customer 16 leaves since no vacant seats
+Customer 17 arrives at time 77
+Customer 17 leaves since no vacant seats
+Customer 18 arrives at time 90
+Customer 18 leaves since no vacant seats
+Customer 19 arrives at time 94
+Customer 19 leaves since no vacant seats
+Customer 20 arrives at time 94
+Customer 20 leaves since no vacant seats
+Customer 13 leaves barber shop at time 97
+Customer 14 gets barber at time 97
+Customer 21 arrives at time 99
+Customer 22 arrives at time 99
+Customer 22 leaves since no vacant seats
+Customer 23 arrives at time 99
+Customer 23 leaves since no vacant seats
+Customer 24 arrives at time 100
+Customer 24 leaves since no vacant seats
+Customer 14 leaves barber shop at time 101
+Customer 21 gets barber at time 101
+Customer 21 leaves barber shop at time 101
+Customer 25 arrives at time 111
+Customer 25 gets barber at time 111
+Customer 26 arrives at time 113
+Customer 25 leaves barber shop at time 115
+Customer 26 gets barber at time 115
+***********************************************************
+End of simulation run.
+***********************************************************
+
+
+Enter duration of program execution (in minutes): 1
+Enter customer mean inter-arrival time (in seconds): 5
+Enter mean service time for the barber  (in seconds): 5
+******************************************************
+TOTAL WAITING SPACE IN BARBER SHOP = 2
+
+Simulation start time = 0
+Barber opens shop at time 0
+Customer 1 arrives at time 1
+Customer 1 gets barber at time 1
+Customer 1 leaves barber shop at time 3
+Customer 2 arrives at time 12
+Customer 2 gets barber at time 12
+Customer 3 arrives at time 14
+Customer 4 arrives at time 14
+Customer 4 leaves since no vacant seats
+Customer 5 arrives at time 15
+Customer 5 leaves since no vacant seats
+Customer 2 leaves barber shop at time 23
+Customer 3 gets barber at time 23
+Customer 3 leaves barber shop at time 25
+Customer 6 arrives at time 33
+Customer 6 gets barber at time 33
+Customer 6 leaves barber shop at time 35
+Customer 7 arrives at time 40
+Customer 7 gets barber at time 40
+Customer 8 arrives at time 48
+Customer 9 arrives at time 48
+Customer 9 leaves since no vacant seats
+Customer 7 leaves barber shop at time 49
+Customer 8 gets barber at time 49
+Customer 8 leaves barber shop at time 49
+Customer 10 arrives at time 52
+Customer 10 gets barber at time 52
+Customer 10 leaves barber shop at time 52
+***********************************************************
+End of simulation run.
+***********************************************************
+
+
+
+
+

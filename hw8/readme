@@ -1,0 +1,11 @@
+Carmen St. Jean (crr8)
+CS 620, Fall 2012
+
+Assignment 8
+
+No special information is needed to run this program.  After calling "make",
+simply call .\barber.  The program requires three integer values to be entered
+to represent the duration time (in minutes), the mean inter-arrival time (in
+seconds), and the mean service time (in seconds).  The program will finish
+executing after the duration time has passed but it can also easily be killed
+with ctrl+C if necessary.

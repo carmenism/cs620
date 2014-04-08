@@ -1,0 +1,8 @@
+Carmen St. Jean (crr8)
+CS 620, Fall 2012
+
+Assignment 4
+
+No special information is needed to run this program.  After calling "make",
+simply call .\myshell.  The shell accepts only external commands and exits
+with the "exit" command.
